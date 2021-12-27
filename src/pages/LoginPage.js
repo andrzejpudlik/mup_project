@@ -1,24 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Layout from '../components/Layout'
-
+import AuthContext from '../context/AuthContext'
 import { validateLoginInfo } from '../components/validateInfo'
 
 import '../styles/LoginRegisterPage.css'
 
 function LoginPage() {
-  
+  const { getLoggedIn } = useContext(AuthContext)
+  let navigate = useNavigate()
   const [values, setValues] = useState({
-    usernameLogin: '',
-    passwordLogin: '', 
+    username: '',
+    password: '',
   });
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(
     () => {
+      async function fetchMyAPI() {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        alert('Form success send')
+        const response = await axios.post('http://localhost:4000/api/login', values, {
+          withCredentials: true
+        })
+        console.log(response)
+        await getLoggedIn()
+          if (response.data.status === 'ok') {
+            navigate('/profile')
+          } else {
+            alert(response.data.error)
+          }
+
       }
+    }
+    fetchMyAPI()
     },
     [errors]
   );
@@ -48,24 +64,24 @@ function LoginPage() {
             <input
               className='form-input'
               type='text'
-              name='usernameLogin'
+              name='username'
               placeholder='Wpisz swoją nazwę użytkownika'
-              value={values.usernameLogin}
+              value={values.username}
               onChange={handleChange}
             />
-            {errors.usernameLogin && <p>{errors.usernameLogin}</p>}
+            {errors.username && <p>{errors.username}</p>}
           </div>
           <div className='form-inputs'>
             <label className='form-label'>Hasło</label>
             <input
               className='form-input'
               type='password'
-              name='passwordLogin'
+              name='password'
               placeholder='Wpisz swoje hasło'
-              value={values.passwordLogin}
+              value={values.password}
               onChange={handleChange}
             />
-            {errors.passwordLogin && <p>{errors.passwordLogin}</p>}
+            {errors.password && <p>{errors.password}</p>}
           </div>
           <button className='form-input-btn' type='submit'>
             Zaloguj się

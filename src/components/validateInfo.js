@@ -42,11 +42,11 @@ export function validatePersonalInfo(values) {
 export function validateLoginInfo(values) {
   let errors = {}
 
-  if (!values.usernameLogin) {
+  if (!values.username) {
     errors.usernameLogin = 'Nazwa użytkownika jest wymagana'
   }
 
-  if (!values.passwordLogin) {
+  if (!values.password) {
     errors.passwordLogin = 'Hasło jest wymagane'
   }
   return errors
