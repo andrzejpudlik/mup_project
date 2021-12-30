@@ -66,16 +66,19 @@ router.get('/api/logout', (req, res) => {
     .send();
 });
 
-router.get("/api/loggedIn", (req, res) => {
+router.get('/api/loggedIn', async (req, res) => {
   try {
-    const token = req.cookies.token;
-    if (!token) return res.json(false);
+    const token = req.cookies.token
+    if (!token) return res.json(false)
 
-    jwt.verify(token, process.env.SECRET_KEY);
+    jwt.verify(token, process.env.SECRET_KEY)
 
-    res.send(true);
+    const decoded = jwt.decode(token)
+    const user = await User.findOne({ _id: decoded.id})
+
+    res.send({ isLogged : true, user })
   } catch (err) {
-    res.json(false);
+    res.json({ isLogged: false })
   }
 });
 
