@@ -1,0 +1,136 @@
+.nav-list {
+  height: 40px;
+  background: rgb(173, 165, 165);
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.nav-list-text {
+  list-style: none;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.container-device-all-info {
+  display: flex;
+  height: 76vh;
+}
+
+.device-nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.btn-close {
+  float: right;
+}
+
+.container-device-list {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+.container-search h2 {
+  text-decoration: gray;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.container-search input {
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 5px;
+  padding: .4rem;
+}
+
+.container-table {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.container-table thead {
+  background: rgb(173, 169, 169);
+  padding: 2rem;
+}
+
+.container-table tr {
+  border: 1px solid gray
+}
+
+.container-table td {
+  border: 2px solid gray;
+  text-align: center;
+}
+
+.container-info {
+  width: 50%;
+  height: 100%;
+  border-left: 2px solid gray;
+}
+
+.container-info .title {
+  display: flex;
+  align-items: center;
+  background-color: #064d94;
+  height: 25vh;
+  color: #f5f5f5;
+  font-size: 18px;
+  padding: 1em;
+}
+
+.container-info .title svg {
+  height: 2.5em;
+  width: 2.5em;
+  padding: 0.8em;
+}
+
+.container-info .title h1 {
+  color: white;
+  margin: 0;
+}
+
+.container-info .device-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-info .device-info .device-info-list {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+}
+
+.container-info .device-info .device-category {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.container-info .device-info .device-category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-info .device-info .device-category-item input {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  height: 21.6px;
+}

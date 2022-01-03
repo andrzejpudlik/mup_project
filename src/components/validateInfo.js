@@ -51,3 +51,42 @@ export function validateLoginInfo(values) {
   }
   return errors
 }
+
+export function validateOtherDeviceInfo(values) {
+  let errors = {}
+
+  if (!values.disk) {
+    errors.disk = 'Informacja o dysku jest wymagana'
+  }
+
+  if (!values.processor) {
+    errors.processor = 'Informacja o procesorze jest wymagana'
+  }
+
+  if (!values.diagonal) {
+    errors.diagonal = 'Informacja o przekątnej jest wymagana'
+  }
+  return errors
+}
+
+export function validateModelDeviceInfo(label, model) {
+  let errors = {}
+
+  if (!label) {
+    errors.label = 'Informacja o numerze inwentarzowym jest wymagana'
+  }
+
+  if (!model) {
+    errors.model = 'Informacja o modelu jest wymagana'
+  }
+  return errors
+}
+
+export function validateTypeDeviceInfo(values) {
+  let errors = {}
+  
+  if (!values) {
+    errors.type = 'Informacja o typie urządzenia jest wymagana'
+  }
+  return errors
+}

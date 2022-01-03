@@ -1,0 +1,144 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  width: 60%;
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.modal-background {
+  position: 'fixed';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 1000;
+}
+
+.title-close-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title-close-btn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.type-list {
+  list-style: none;
+  margin: 0;
+}
+
+.type-item {
+  background: rgb(55, 81, 131);
+  color: white;
+  border: 2px solid rgb(55, 81, 131);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: .5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: .8rem;
+}
+
+.new_type-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.new_type-input {
+  padding-left: 10px;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  border: 2px solid rgb(55, 81, 131);
+  border-radius: 10px;
+}
+
+.new_type-button {
+  width: 100px;
+  height: 45px;
+  margin-top: 10px;
+  border: none;
+  background-color: rgb(55, 81, 131);
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.new-label {
+  display: inline-block;
+  font-size: .9rem;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.new-label-error {
+  font-size: .8rem;
+  color: red;
+  margin: 0;
+}
+
+.footer {
+  flex: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 10%;
+}
+
+.footer-error {
+  float: right;
+}
+
+.footer-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
