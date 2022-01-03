@@ -43,11 +43,11 @@ export function validateLoginInfo(values) {
   let errors = {}
 
   if (!values.username) {
-    errors.usernameLogin = 'Nazwa użytkownika jest wymagana'
+    errors.username = 'Nazwa użytkownika jest wymagana'
   }
 
   if (!values.password) {
-    errors.passwordLogin = 'Hasło jest wymagane'
+    errors.password = 'Hasło jest wymagane'
   }
   return errors
 }

@@ -8,7 +8,6 @@ export default function Navlink({ to, name }) {
     background: "none",
     color: "white",
     cursor: "pointer",
-    height: "100px",
     fontSize: "15px",
     padding: "15px",
     margin: "10px"
