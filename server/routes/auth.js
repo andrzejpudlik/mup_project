@@ -20,7 +20,6 @@ router.post('/api/register', async (req, res) => {
     res.json({ status: 'ok', user })
   } catch (err) {
     res.json({ status: 'error', error: 'Taka nazwa użytkownika lub email już istnieje' })
-    console.log(err)
   }
 })
 

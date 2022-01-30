@@ -1,30 +1,25 @@
 import mongoose from 'mongoose'
 
-const DeviceSchema = new mongoose.Schema({
-  type: {
-    type: String,
-    required: true,
-  },
-  label: {
+const IssueSchema = new mongoose.Schema({
+  issueNumber: {
     type: String,
     required: true,
     unique: true,
   },
-  model: {
+  name: {
     type: String,
     required: true,
   },
-  windows: {
+  additionalInfo: {
     type: String,
   },
-  disk: {
-    type: String,
+  priority: {
+    type: Boolean,
+    required: true,
   },
-  processor: {
+  status: {
     type: String,
-  },
-  diagonal: {
-    type: String,
+    default: 'Aktywny'
   },
   whoIntroduced: {
     type: String,
@@ -34,12 +29,14 @@ const DeviceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  status: {
+  dateClosed: {
     type: String,
-    default: 'unallocated'
+  },
+  whoClosed: {
+    type: String,
   }
 })
 
-const DevicesModel = mongoose.model('devices', DeviceSchema)
+const IssueModel = mongoose.model('issues', IssueSchema)
 
-export default DevicesModel
+export default IssueModel

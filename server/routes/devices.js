@@ -13,6 +13,15 @@ router.get('/devices', verifyToken, async (req, res) => {
   }
 })
 
+router.get('/devices/unallocated', verifyToken, async (req, res) => {
+  try {
+    const allDevices = await Devices.find({ status: 'unallocated' })
+    res.json(allDevices)
+  } catch (err) {
+    res.json({ status: 'error', error: 'Wystąpił błąd, spróbuj ponownie' })
+  }
+})
+
 router.post('/devices', verifyToken, async (req, res) => {
 
   const { type, label, model, windows, disk, processor, diagonal, whoIntroduced, dateIntroduced } = req.body

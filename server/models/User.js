@@ -23,10 +23,24 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phone: {
+    type: String,
+    default: '',
+  },
+  programs: {
+    type: Object,
+  },
   isAdmin: {
     type: Boolean,
     default: false,
-  }
+  },
+  additionalInfo: {
+    type: String,
+    default: '',
+  },
+  deviceOwner: {
+    type: Array,
+  },
 }, {
   timestamps: true
 })
