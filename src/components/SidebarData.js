@@ -24,7 +24,7 @@ export const SidebarData = [
   },
   {
     title: 'Zgłoszenia',
-    path: '/notifications',
+    path: '/issues',
     icon: <GoAlert />,
     cName: 'nav-text'
   }

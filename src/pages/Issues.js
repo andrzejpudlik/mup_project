@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 
-function Notifications() {
+function Issues() {
+
   return (
     <Layout>
       Zgłoszenia
@@ -9,4 +10,4 @@ function Notifications() {
   )
 }
 
-export default Notifications
+export default Issues

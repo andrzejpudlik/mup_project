@@ -9,7 +9,7 @@ import Profile from '../pages/Profile'
 import Users from '../pages/Users'
 import Devices from '../pages/Devices'
 import Demands from '../pages/Demands'
-import Notifications from '../pages/Notifications'
+import Issues from '../pages/Issues'
 
 function AppRouter() {
   const { loggedIn } = useContext(AuthContext)
@@ -25,7 +25,7 @@ function AppRouter() {
             <Route path='/users' element={<Navigate to='/login' />} />
             <Route path='/devices' element={<Navigate to='/login' />} />
             <Route path='/demands' element={<Navigate to='/login' />} />
-            <Route path='/notifications' element={<Navigate to='/login' />} />
+            <Route path='/issues' element={<Navigate to='/login' />} />
           </>
         )}
         {loggedIn && (
@@ -36,7 +36,7 @@ function AppRouter() {
             <Route path='/users' element={<Users />} />
             <Route path='/devices' element={<Devices />} />
             <Route path='/demands' element={<Demands />} />
-            <Route path='/notifications' element={<Notifications />} />
+            <Route path='/issues' element={<Issues />} />
           </>
         )}
         <Route path='*' element={<NotfoundPage />} />
