@@ -16,12 +16,6 @@ function OtherDeviceInfo({ formData, setFormData }) {
           <option value='7'>7</option>
         </select>
       </div>
-      {/* <Input
-        value={formData.windows}
-        onChange={e => setFormData({ ...formData, label: e.target.value })}
-        placeholder='Podaj rodzaj systemu'
-        size='sm'
-      /> */}
       <div className='container-item'>
         <label className='new-label'>Dysk</label>
         <input
