@@ -24,7 +24,6 @@ function ModalAddDevice({ setModalOpen, changeIsChangedDeviceList }) {
       console.log(formData);
       axios.post('http://localhost:4000/devices', formData)
         .then((response) => {
-        console.log(response)
         if (response.data.status === 'ok') {
           setModalOpen(false)
           changeIsChangedDeviceList(true)

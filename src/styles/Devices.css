@@ -3,6 +3,7 @@
   background: rgb(173, 165, 165);
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   margin: 0;
 }
 
@@ -14,7 +15,7 @@
   align-items: center;
 }
 
-.container-device-all-info {
+.container-all-info {
   display: flex;
   height: 76vh;
 }
@@ -29,10 +30,28 @@
   float: right;
 }
 
-.container-device-list {
+.container-list {
   width: 50%;
+  height: 108%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.search-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search-list button {
+  background: rgb(173, 169, 169);
+  border: none;
+  height: 3rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 .container-search {
@@ -70,25 +89,52 @@
 }
 
 .container-table tr {
-  border: 1px solid gray
+  border: 1px solid gray;
+  border-right: none;
+  cursor: pointer;
 }
 
 .container-table td {
   border: 2px solid gray;
   text-align: center;
+  overflow: hidden;
+  table-layout: fixed;
+  white-space: nowrap;
+  border-right: none;
+}
+
+.container-table td:nth-child(1) {
+  border-left: none;
+}
+
+.container-pagination {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.container-pagination button {
+  border: 2px solid black;
+  border-radius: 5px;
+  background: gray;
+  margin-right: .2rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
 }
 
 .container-info {
   width: 50%;
-  height: 100%;
-  border-left: 2px solid gray;
+  /* height: 83.4vh; */
+  height: 108%;
+  border-left: 4px solid rgb(107, 89, 89);
 }
 
 .container-info .title {
   display: flex;
   align-items: center;
   background-color: #064d94;
-  height: 25vh;
+  height: 15vh;
   color: #f5f5f5;
   font-size: 18px;
   padding: 1em;
@@ -123,6 +169,28 @@
   align-items: flex-end;
 }
 
+.category-large {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+  padding-top: 1.5rem;
+}
+
+.category-large > p {
+  margin: 0.4rem 0;
+}
+
+.nav-device-list {
+  list-style: none;
+  height: 40px;
+  background: rgb(173, 165, 165);
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
 .container-info .device-info .device-category-item {
   display: flex;
   flex-direction: column;
@@ -133,4 +201,107 @@
   margin-block-start: 1em;
   margin-block-end: 1em;
   height: 21.6px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 4rem;
+}
+
+.footer-info p {
+  margin: 0.4rem 0;
+}
+
+.btn-primary {
+  width: 200px;
+  height: 45px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+
+.btn-danger {
+  width: 200px;
+  height: 45px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: rgb(207, 60, 34);
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(230, 160, 30) 0%,
+    rgb(190, 22, 16) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+
+.footer-info-inactive {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list_setting {
+  display: flex;
+  justify-content:first baseline;
+  align-items: center;
+}
+
+.list_setting > p {
+  width: 20%;
+  margin: 0.8rem 0;
+  font-size: 1.4rem;
+}
+
+.form_setting_input {
+  width: 40%;
+}
+
+.form_setting_inputs {
+  width: 80%;
+}
+
+.user-info {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-user-info {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile-input {
+  padding-left: 10px;
+  outline: none;
+  height: 40px;
+  width: 40%;
+  border: 2px solid rgb(55, 81, 131);
+  border-radius: 10px;
 }

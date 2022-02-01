@@ -90,7 +90,7 @@ function Devices() {
           </ul>
         </div>
 
-        <div className='container-device-all-info'>
+        <div className='container-all-info'>
           <DeviceList 
             changeDeviceActive={deviceActive => setDeviceActive(deviceActive)}
             setIsEditable={setIsEditable}

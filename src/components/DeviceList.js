@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useMemo, useState } from 'react'
-import { useGlobalFilter, useSortBy, useTable } from 'react-table'
+import { useGlobalFilter, useTable, usePagination } from 'react-table'
 import { GlobalFilter } from './GlobalFilter'
 
 export default function DeviceList({ changeDeviceActive, setIsEditable, isChangedDeviceList, setIsChangedDeviceList }) {
@@ -49,17 +49,22 @@ export default function DeviceList({ changeDeviceActive, setIsEditable, isChange
       data: devicesData,
     },
     useGlobalFilter,
-    useSortBy
+    usePagination
   )
 
   const {
+    canNextPage,
+    canPreviousPage,
     getTableProps,
     getTableBodyProps,
-    rows,
+    page,
+    nextPage,
+    previousPage,
+    pageOptions,
     prepareRow,
     preGlobalFilteredRows,
     setGlobalFilter,
-    state,
+    state: { pageIndex, globalFilter },
   } = tableInstance
 
   const handleClick = label => {
@@ -68,39 +73,51 @@ export default function DeviceList({ changeDeviceActive, setIsEditable, isChange
   }
 
   return (
-    <div className='container-device-list'>
-      <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        setGlobalFilter={setGlobalFilter}
-        globalFilter={state.globalFilter}
-      />
-      <table className='container-table'{...getTableProps()}>
-        <thead>
-            <tr>
-              {titleDevice.map((title) => {
-                return <th key={title}>{title}</th>
-              })}
-            </tr>
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row, idx) => {
-            prepareRow(row);
-
-            return (
-              <tr
-                {...row.getRowProps()}
-                onClick={() => handleClick(row.values.label)}
-              >
-                {row.cells.map((cell, idx) => (
-                  <td {...cell.getCellProps()}>
-                    {cell.render("Cell")}
-                  </td>
-                ))}
+    <div className='container-list'>
+      <div>
+        <GlobalFilter
+          preGlobalFilteredRows={preGlobalFilteredRows}
+          setGlobalFilter={setGlobalFilter}
+          globalFilter={globalFilter}
+        />
+        <table className='container-table'{...getTableProps()}>
+          <thead>
+              <tr>
+                {titleDevice.map((title) => {
+                  return <th key={title}>{title}</th>
+                })}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {page.map((row) => {
+              prepareRow(row)
+              
+              return (
+                <tr
+                  {...row.getRowProps()}
+                  onClick={() => handleClick(row.values.label)}
+                >
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()}>
+                      {cell.render("Cell")}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className='container-pagination'>
+        <span>
+          Strona{' '}
+          <strong>
+            {pageIndex + 1} z {pageOptions.length}
+          </strong>
+        </span>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}</button>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>{'>'}</button>
+      </div>
     </div>
   );
 }

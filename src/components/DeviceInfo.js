@@ -87,14 +87,6 @@ function DeviceInfo({ deviceActive, isEditable }) {
                   onChange={e => setEditDeviceInfo({ ...editDeviceInfo, processor: e.target.value })}
                 />
               )}
-              {!isEditable ? <p>{deviceInfo.diagonal}</p> : (
-                <input 
-                  className=''
-                  type="text"
-                  value={editDeviceInfo.diagonal} 
-                  onChange={e => setEditDeviceInfo({ ...editDeviceInfo, diagonal: e.target.value })}
-                />
-              )}
               {!isEditable ? <p>{deviceInfo.disk}</p> : (
                 <input 
                   className=''
@@ -103,15 +95,15 @@ function DeviceInfo({ deviceActive, isEditable }) {
                   onChange={e => setEditDeviceInfo({ ...editDeviceInfo, disk: e.target.value })}
                 />
               )}
+              {!isEditable ? <p>{deviceInfo.diagonal}</p> : (
+                <input 
+                  className=''
+                  type="text"
+                  value={editDeviceInfo.diagonal} 
+                  onChange={e => setEditDeviceInfo({ ...editDeviceInfo, diagonal: e.target.value })}
+                />
+              )}
             </div>
-            {/* <div className='device-category'>
-              
-
-            </div>
-            <div className='device-category'>
-              
-
-            </div> */}
           </div>
         </div>
       )}
