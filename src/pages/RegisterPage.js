@@ -72,27 +72,29 @@ function RegisterPage() {
 
   return (
     <Layout>
-      <div className='form-container'>
-        <div className='form'>
-          <h1>{FormTitles[page]}</h1>
-          {PageDisplay()}
-          <div className='form-input-footer'>
-            {page !== 0 ? (
+      <div className='home-container'>
+        <div className='form-container'>
+          <div className='form'>
+            <h1>{FormTitles[page]}</h1>
+            {PageDisplay()}
+            <div className='form-input-footer'>
+              {page !== 0 ? (
+                <button
+                  className='form-input-btn'
+                  onClick={() => {
+                    setPage((currPage) => currPage - 1);
+                  }}
+                >
+                Wstecz
+                </button>
+              ) : null}
               <button
                 className='form-input-btn'
-                onClick={() => {
-                  setPage((currPage) => currPage - 1);
-                }}
+                onClick={handleSubmit}
               >
-              Wstecz
+                {page === FormTitles.length - 1 ? "Rejestracja" : "Dalej"}
               </button>
-            ) : null}
-            <button
-              className='form-input-btn'
-              onClick={handleSubmit}
-            >
-              {page === FormTitles.length - 1 ? "Rejestracja" : "Dalej"}
-            </button>
+            </div>
           </div>
         </div>
       </div>

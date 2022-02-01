@@ -9,8 +9,6 @@ import ModalAddDevice from '../components/ModalAddDevice'
 import DeviceList from '../components/DeviceList'
 import DeviceInfo from '../components/DeviceInfo'
 
-import '../styles/Devices.css'
-
 function Devices() {
 
   const [modalOpen, setModalOpen] = useState(false)

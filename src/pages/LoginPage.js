@@ -24,7 +24,6 @@ function LoginPage() {
         const response = await axios.post('http://localhost:4000/api/login', values, {
           withCredentials: true
         })
-        console.log(response)
         await getLoggedIn()
           if (response.data.status === 'ok') {
             navigate('/profile')
@@ -56,37 +55,39 @@ function LoginPage() {
 
   return (
     <Layout>
-      <div className='form-container'>
-        <form onSubmit={handleSubmit} className='form' noValidate>
-          <h1>Logowanie</h1>
-          <div className='form-inputs'>
-            <label className='form-label'>Nazwa użytkownika</label>
-            <input
-              className='form-input'
-              type='text'
-              name='username'
-              placeholder='Wpisz swoją nazwę użytkownika'
-              value={values.username}
-              onChange={handleChange}
-            />
-            {errors.username && <p>{errors.username}</p>}
-          </div>
-          <div className='form-inputs'>
-            <label className='form-label'>Hasło</label>
-            <input
-              className='form-input'
-              type='password'
-              name='password'
-              placeholder='Wpisz swoje hasło'
-              value={values.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p>{errors.password}</p>}
-          </div>
-          <button className='form-input-btn' type='submit'>
-            Zaloguj się
-          </button>
-        </form>
+      <div className='home-container'>
+        <div className='form-container'>
+          <form onSubmit={handleSubmit} className='form' noValidate>
+            <h1>Logowanie</h1>
+            <div className='form-inputs'>
+              <label className='form-label'>Nazwa użytkownika</label>
+              <input
+                className='form-input'
+                type='text'
+                name='username'
+                placeholder='Wpisz swoją nazwę użytkownika'
+                value={values.username}
+                onChange={handleChange}
+              />
+              {errors.username && <p>{errors.username}</p>}
+            </div>
+            <div className='form-inputs'>
+              <label className='form-label'>Hasło</label>
+              <input
+                className='form-input'
+                type='password'
+                name='password'
+                placeholder='Wpisz swoje hasło'
+                value={values.password}
+                onChange={handleChange}
+              />
+              {errors.password && <p>{errors.password}</p>}
+            </div>
+            <button className='form-input-btn' type='submit'>
+              Zaloguj się
+            </button>
+          </form>
+        </div>
       </div>
     </Layout>
   )

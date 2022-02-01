@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { FaUserAlt } from 'react-icons/fa'
+import { RiUserAddFill, RiLogoutBoxRLine } from 'react-icons/ri'
 import Navlink from './Navlink'
 import AuthContext from '../context/AuthContext'
 import LogOutBtn from './LogoutBtn'
@@ -11,10 +13,10 @@ function Navbar() {
     <div className='navbar'>
       {loggedIn && <Sidebar />}
       <div className='navbar-link'>
-        {!loggedIn && <Navlink to='/login' name='Logowanie' />}
-        {!loggedIn && <Navlink to='/register' name='Rejestracja' />}
-        {loggedIn && <Navlink to='/profile' name='Profil' />}
-        {loggedIn && <LogOutBtn />}
+        {!loggedIn && <><FaUserAlt /><Navlink to='/login' name='Logowanie' /></>}
+        {!loggedIn && <><RiUserAddFill /><Navlink to='/register' name='Rejestracja' /></>}
+        {loggedIn && <><FaUserAlt /><Navlink to='/profile' name='Profil' /></>}
+        {loggedIn && <><RiLogoutBoxRLine /><LogOutBtn /></>}
       </div>
     </div>
   )

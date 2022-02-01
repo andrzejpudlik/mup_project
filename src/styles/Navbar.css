@@ -1,6 +1,6 @@
 .navbar {
   background-color: #064d94;
-  height: 80px;
+  height: 12vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,4 +10,12 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-link > svg {
+  color: #fff;
+  margin-right: -1rem;
+  height: 20px;
+  width: 20px;
 }

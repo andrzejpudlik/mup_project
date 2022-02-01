@@ -5,8 +5,7 @@ import AuthContext from '../context/AuthContext'
 
 function LogOutBtn() {
   const buttonLogout = {
-    border: "2px white solid",
-    borderRadius: "10px",
+    border: "none",
     background: "none",
     color: "white",
     cursor: "pointer",

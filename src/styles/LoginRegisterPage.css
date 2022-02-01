@@ -1,8 +1,15 @@
+.home-container {
+  height: 88vh;
+  background-color: gray;
+  width: 100%;
+  position: absolute;
+  top: 12vh;
+}
+
 .form-container {
   margin: 20px auto;
   width: 500px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
   border-radius: 10px;
   height: 600px;
   display: grid;
@@ -41,7 +48,7 @@
   font-size: 0.8rem;
   margin-top: 0.5rem;
   margin-bottom: 0;
-  color: #691717;
+  color: #db1616;
   font-weight: bold;
 }
 
