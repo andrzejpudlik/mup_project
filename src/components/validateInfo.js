@@ -3,6 +3,8 @@ export function validateSignUp(values) {
 
   if (!values.username.trim()) {
     errors.username = 'Nazwa użytkownika jest wymagana'
+  } else if (values.username.length < 5) {
+    errors.username = 'Nazwa musi zawierać przynajmniej 5 znaków'
   }
 
   if (!values.email) {
@@ -52,6 +54,36 @@ export function validateLoginInfo(values) {
   return errors
 }
 
+export function validateProfileInfo(values) {
+  let errors = {}
+  let regex = /^[\d,\s,\+,\-]{9,15}/
+
+  if (!values.username) {
+    errors.username = 'Nazwa użytkownika jest wymagana'
+  } else if (values.username.length < 5) {
+    errors.username = 'Nazwa musi zawierać przynajmniej 5 znaków'
+  }
+  if (!values.firstName) {
+    errors.firstName = 'Podanie imienia jest wymagane'
+  } else if (values.firstName.length < 3) {
+    errors.firstName = 'Podano błędnie imię'
+  } 
+  if (!values.lastName) {
+    errors.lastName = 'Podanie nazwiska jest wymagane'
+  } else if (values.lastName.length < 2) {
+    errors.lastName = 'Podano błędnie nazwisko'
+  } 
+  if (!values.email) {
+    errors.email = 'Adres email jest wymagany'
+  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+    errors.email = 'Adres email jest nieprawidłowy'
+  }
+  if (!values.phone.match(regex)) {
+    errors.phone = 'Podany numer jest nieprawidłowy'
+  }
+  return errors
+}
+
 export function validateOtherDeviceInfo(values) {
   let errors = {}
 
@@ -88,5 +120,45 @@ export function validateTypeDeviceInfo(values) {
   if (!values) {
     errors.type = 'Informacja o typie urządzenia jest wymagana'
   }
+  return errors
+}
+
+export function validateDemand(values) {
+  let errors = {}
+  
+  if (!values.name) {
+    errors.name = 'Informacja o nazwie zapotrzebowania jest wymagana'
+  }
+
+  if (values.quantity < 1) {
+    errors.quantity = 'Wartość przy ilości nie jest prawidłowa'
+  }
+
+  if (!values.cost) {
+    errors.cost = 'Informacja o szacunkowych kosztach jest wymagana'
+  }
+
+  return errors
+}
+
+export function validateIssue(values) {
+  let errors = {}
+  
+  if (!values.name) {
+    errors.name = 'Informacja o nazwie zgłoszenia jest wymagana'
+  }
+
+  return errors
+}
+
+export function validatePhoneNumber(values) {
+  let errors = {}
+
+  let regex = /^[\d,\s,\+,\-]{9,15}/
+
+  if (!values.phone.match(regex)) {
+    errors.phone = 'Podany numer jest nieprawidłowy'
+  }
+
   return errors
 }
